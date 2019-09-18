@@ -1,6 +1,6 @@
-import client.ClientRequest;
-import client.Response;
-import client.TcpClient;
+import com.netty.client.ClientRequest;
+import com.netty.client.Response;
+import com.netty.client.TcpClient;
 import org.junit.Test;
 
 public class TestTcp {

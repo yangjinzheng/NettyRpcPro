@@ -1,4 +1,4 @@
-package handler.param;
+package com.netty.handler.param;
 
 import lombok.Data;
 

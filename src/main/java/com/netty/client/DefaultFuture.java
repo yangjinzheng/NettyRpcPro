@@ -1,4 +1,4 @@
-package client;
+package com.netty.client;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.Condition;

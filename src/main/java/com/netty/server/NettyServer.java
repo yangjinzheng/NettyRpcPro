@@ -1,8 +1,8 @@
-package server;
+package com.netty.server;
 
-import constant.Contants;
-import factory.ZookeeperFactory;
-import handler.SimpleServerHandler;
+import com.netty.constant.Contants;
+import com.netty.factory.ZookeeperFactory;
+import com.netty.handler.SimpleServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;

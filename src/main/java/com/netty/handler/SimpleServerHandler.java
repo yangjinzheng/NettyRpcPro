@@ -1,11 +1,10 @@
-package handler;
+package com.netty.handler;
 
-import client.Response;
+import com.netty.client.Response;
 import com.alibaba.fastjson.JSONObject;
-import handler.param.ServerRequest;
+import com.netty.handler.param.ServerRequest;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.handler.codec.json.JsonObjectDecoder;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import io.netty.handler.timeout.IdleStateHandler;

@@ -1,11 +1,10 @@
-package handler;
+package com.netty.handler;
 
-import client.DefaultFuture;
-import client.Response;
+import com.netty.client.DefaultFuture;
+import com.netty.client.Response;
 import com.alibaba.fastjson.JSONObject;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.util.AttributeKey;
 
 public class SimpleClientHandler extends ChannelInboundHandlerAdapter {
     @Override

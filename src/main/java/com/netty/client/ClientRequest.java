@@ -1,8 +1,7 @@
-package client;
+package com.netty.client;
 
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 import java.util.concurrent.atomic.AtomicLong;
 

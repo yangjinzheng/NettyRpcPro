@@ -1,4 +1,4 @@
-package factory;
+package com.netty.factory;
 
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;

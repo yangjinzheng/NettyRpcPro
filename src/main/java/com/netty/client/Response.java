@@ -1,4 +1,4 @@
-package client;
+package com.netty.client;
 
 import lombok.Data;
 
