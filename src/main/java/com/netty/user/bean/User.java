@@ -1,4 +1,4 @@
-package com.user.bean;
+package com.netty.user.bean;
 
 import lombok.Data;
 

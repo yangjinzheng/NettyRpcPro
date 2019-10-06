@@ -1,6 +1,7 @@
 package com.netty.medium;
 
 import com.alibaba.fastjson.JSONObject;
+import com.netty.client.Response;
 import com.netty.handler.param.ServerRequest;
 
 import java.lang.reflect.InvocationTargetException;
@@ -33,8 +34,8 @@ public class Media {
      * @param serverRequest
      * @return
      */
-    public Object process(ServerRequest serverRequest) {
-        Object result = null;
+    public Response process(ServerRequest serverRequest) {
+        Response result = null;
         try {
             String command = serverRequest.getCommand();
             BeanMethod beanMethod = beanMap.get(command);
@@ -43,10 +44,12 @@ public class Media {
             }
             Object bean = beanMethod.getBean();
             Method m = beanMethod.getMethod();
-            Class paramType = m.getParameterTypes()[0];
+            Class<?> paramType = m.getParameterTypes()[0];
             Object content = serverRequest.getContent();
             Object args = JSONObject.parseObject(JSONObject.toJSONString(content), paramType);
-            result = m.invoke(bean, args);
+            //通过反射获取方法和参数反射执行调用方法
+            result = (Response) m.invoke(bean, args);
+            result.setId(serverRequest.getId());
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {

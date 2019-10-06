@@ -2,6 +2,7 @@ package com.netty.init;
 
 import com.netty.constant.Contants;
 import com.netty.factory.ZookeeperFactory;
+import com.netty.handler.ServerHandler;
 import com.netty.handler.SimpleServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -42,7 +43,7 @@ public class NettyInit implements ApplicationListener<ContextRefreshedEvent> {
                             ch.pipeline().addLast(new DelimiterBasedFrameDecoder(65535, Delimiters.lineDelimiter()[0]));
                             ch.pipeline().addLast(new StringDecoder());
                             ch.pipeline().addLast(new IdleStateHandler(10,10,10, TimeUnit.SECONDS));
-                            ch.pipeline().addLast(new SimpleServerHandler());
+                            ch.pipeline().addLast(new ServerHandler());
                             ch.pipeline().addLast(new StringEncoder());
                         }
                     });

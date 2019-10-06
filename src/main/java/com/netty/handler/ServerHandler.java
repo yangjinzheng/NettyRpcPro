@@ -1,5 +1,6 @@
 package com.netty.handler;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.netty.client.Response;
 import com.netty.handler.param.ServerRequest;
@@ -13,10 +14,11 @@ import io.netty.handler.timeout.IdleStateHandler;
 public class ServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-//        ctx.channel().writeAndFlush("is ok\r\n");
         ServerRequest serverRequest = JSONObject.parseObject(msg.toString(), ServerRequest.class);
         Media media = Media.newInstance();
         Object result = media.process(serverRequest);
+        ctx.channel().writeAndFlush(JSON.toJSONString(result));
+        ctx.channel().writeAndFlush("\r\n");
     }
 
     @Override
