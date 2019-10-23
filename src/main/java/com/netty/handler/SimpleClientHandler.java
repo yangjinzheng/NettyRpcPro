@@ -16,6 +16,7 @@ public class SimpleClientHandler extends ChannelInboundHandlerAdapter {
        // ctx.channel().attr(AttributeKey.valueOf("sssss")).set(msg);
         Response response = JSONObject.parseObject(msg.toString(), Response.class);
         DefaultFuture.receive(response);
+        //关闭通道回到主线程
 //        ctx.channel().close();
     }
 

@@ -47,10 +47,12 @@ public class NettyInit implements ApplicationListener<ContextRefreshedEvent> {
                             ch.pipeline().addLast(new StringEncoder());
                         }
                     });
-            ChannelFuture channelFuture = bootstrap.bind(8080).sync();
+            int port = 8081;
+            int weight = 1;
+            ChannelFuture channelFuture = bootstrap.bind(port).sync();
             CuratorFramework client = ZookeeperFactory.create();
             InetAddress address = InetAddress.getLocalHost();
-            client.create().withMode(CreateMode.EPHEMERAL).forPath(Contants.SERVER_PATH + address.getHostAddress());
+            client.create().withMode(CreateMode.EPHEMERAL).forPath(Contants.SERVER_PATH +"/"+ address.getHostAddress()+"#"+port+"#"+weight);
             channelFuture.channel().closeFuture().sync();
         } catch (Exception e) {
             e.printStackTrace();
